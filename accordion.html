@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Page Title</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<style type="text/css">
+		/*fluid? padding = 0*/
+		
+		.slide{
+			background-repeat: no-repeat;
+			background-position: left center;
+			background-size: cover;
+			margin: 0;
+			padding:0;
+			width: 25%;
+			height: 500px;
+			float: left;
+			cursor: pointer;
+			*zoom:1;
+		}
+		
+		.slide:before,
+		.slide:after {
+		    content: " "; 
+		    display: table; 
+		}
+
+		.slide:after {
+		    clear: both;
+		}
+		#panel1{
+			background-image: url('http://placekitten.com/1500/500');
+		}
+
+		#panel2{
+			background-image: url('http://placekitten.com/1500/500');
+
+		}
+
+		#panel3{
+			background-image: url('http://placekitten.com/1500/500');
+
+		}
+
+		#panel4{
+			background-image: url('http://placekitten.com/1500/500');
+
+		}
+	</style>
+
+	<script>
+	$(document).ready(function($){
+			// $('.fancybox').fancybox();
+			// 			$("#specifictag").fancybox({
+			// 				type : 'iframe'
+			// 				padding : 20
+			// 
+			// 				// check out fancyapps.com
+			// 				// also download the fancybox stuff
+			// 				// always make sure it's an iframe if it's not an image
+			// 				// html content overrides anything you link to
+			// 			});
+		
+
+		$("#panel1").on('mouseover touchstart', function(){
+			$("#panel1").stop().animate({'width':'70%', 'property': 'value'},500);
+			$("#panel2").stop().animate({'width':'10%'},500);
+			$("#panel3").stop().animate({'width':'10%'},500);
+			$("#panel4").stop().animate({'width':'10%'},500);	
+		})
+	});
+	
+	
+	</script>
+</head>
+<body>
+
+	<!-- panels: jquery widget? sliding panels -->
+	<!-- fluid means it goes from edge to edge - do you want immersive? -->
+	<!-- can do multiple containers -->
+	<!-- offset does not have to equal 12 -->
+	<div class="container">
+		<div id="panel1" class="slide"></div>
+		<div id="panel2" class="slide"></div>
+		<div id="panel3" class="slide"></div>
+		<div id="panel4" class="slide"></div>
+
+	</div>
+
+		<!-- <div class ="row">
+			<div class="col-sm-SOMENUMBER"></div>
+			<!-columns have to equal 12, and then start new row -->
+			<!-- col-sm-8 col-sm-offset-2 = push from left -->
+<!-- 			nested row has to add up to 12 also
+ -->			<!-- for background images, div inside div so that there's no overlap -->
+			<!-- <div class="row">
+				<div class="col-sm-4"></div>
+			</div>
+		</div> -->
+
+	
+</body>
+</html>
