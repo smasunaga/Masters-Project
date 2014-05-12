@@ -32,8 +32,6 @@ var margin = {top: 20, right: 80, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var parseDate = d3.time.format("%Y%m%d").parse;
-
 var x = d3.time.scale()
     .range([0, width]);
 
@@ -62,7 +60,7 @@ var svg = d3.select("body").append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.csv("fedfundingtotals.csv", function(error, data) {
-  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "funding" && key!=="year"; }));
+  color.domain(d3.keys(data[0]).filter(function(key) { return key; }));
 
   data.forEach(function(d) {
     d.funding = +d.funding;
@@ -73,7 +71,7 @@ d3.csv("fedfundingtotals.csv", function(error, data) {
     return {
       name: name,
       values: data.map(function(d) {
-        return {date: d.year, funding: +d[funding]};
+        return {date: d.year, funding: +d["funding"]};
       })
     };
   });
